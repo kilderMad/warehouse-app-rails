@@ -28,6 +28,7 @@ describe 'Usuario cadastra um galpão' do
         click_on 'Enviar'
 
         expect(current_path).to eq root_path
+        expect(page).to have_content 'Galpão cadastrado com sucesso!'
         expect(page).to have_content 'Recife Galpões'
         expect(page).to have_content 'Código: RCF'
         expect(page).to have_content 'Cidade: Recife'
