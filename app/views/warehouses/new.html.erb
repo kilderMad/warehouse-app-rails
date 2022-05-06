@@ -1,5 +1,9 @@
 <h1>Novo Galpão</h1>
 
+<% if flash[:notice] %>
+  <p style='color: green'><%= flash[:notice]%></p>
+<% end %>
+
 <%= form_with model: @warehouse do |f| %>
     <div>
         <%= f.label :name, 'Nome'%>

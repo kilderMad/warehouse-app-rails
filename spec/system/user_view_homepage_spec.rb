@@ -8,8 +8,12 @@ describe 'O usuario entra na home' do
     end
 
     it 'e vê todos os galpões cadastrados' do
-        Warehouse.create(name: 'Recife', code: 'RCF', city: 'Recife', area: 90_000)        
-        Warehouse.create(name: 'São Paulo', code: 'GRU', city: 'Guarulhos', area: 100_000)
+        Warehouse.create(name: 'Recife', code: 'RCF', city: 'Recife', area: 90_000,
+            address: 'Avenida do aeroporto, 1000', cep: '15000-000',
+            description: 'Galpao destinado para cargas internacionais')        
+        Warehouse.create(name: 'São Paulo', code: 'GRU', city: 'Guarulhos', area: 100_000,
+            address: 'Avenida do aeroporto, 1000', cep: '15000-000',
+            description: 'Galpao destinado para cargas internacionais')
         
         visit('/')
 
