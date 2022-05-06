@@ -24,7 +24,7 @@ describe 'Usuario cadastra um galpão' do
         fill_in 'Endereço', with: 'Avenida Brasil, 999'
         fill_in 'Cidade', with: 'Recife'
         fill_in 'CEP', with: '50670-234'
-        fill_in 'Áre', with: '90000'
+        fill_in 'Área', with: '90000'
         click_on 'Enviar'
 
         expect(current_path).to eq root_path
@@ -38,12 +38,16 @@ describe 'Usuario cadastra um galpão' do
 
     it 'com dados incompletos' do
         visit root_path
-        click_on 'Cadastrar Galpão'
-
-        fill_in 'Nome', with: ''
-        fill_in 'Descrição', with: ''
+        click_on 'Cadastrar Galpão'  
         click_on 'Enviar'
 
         expect(page).to have_content 'Galpão não cadastrado'
+        expect(page).to have_content "Nome não pode ficar em branco"
+        expect(page).to have_content "CEP não pode ficar em branco"
+        expect(page).to have_content "Área não pode ficar em branco"
+        expect(page).to have_content "Cidade não pode ficar em branco"
+        expect(page).to have_content "Endereço não pode ficar em branco"
+        expect(page).to have_content "Código não possui o tamanho esperado (3 caracteres)"
+        expect(page).to have_content "CEP não é válido"
     end
 end
