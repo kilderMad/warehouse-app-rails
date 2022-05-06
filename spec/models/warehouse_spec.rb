@@ -69,6 +69,17 @@ RSpec.describe Warehouse, type: :model do
     expect(second_warehouse.valid?).to eq false
     end
 
+    it 'quando o nome ja existe' do
+        first_warehouse =Warehouse.create(name: 'London', code: 'RIO', address: 'Endereço',
+            cep: '12500-000', city: 'Rio', area: 100000,
+            description: 'alguma')
+        second_warehouse =Warehouse.new(name: 'London', code: 'LDN', address: 'Av. Street',
+            cep: '40500-000', city: 'London', area: 200000,
+            description: 'paralelepipedo')
+    
+        expect(second_warehouse.valid?).to eq false
+        end
+
     it 'quando o cep nao é valido' do
         warehouse =Warehouse.new(name: 'London', code: 'RIO', address: 'Av. Street',
             cep: '400-000', city: 'London', area: 200000,
