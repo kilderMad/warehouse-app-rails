@@ -1,5 +1,9 @@
 <h1>Galpão <%= @warehouse.name%></h1>
 
+<% if flash[:notice] %>
+  <p style='color: green'><%= flash[:notice]%></p>
+<% end %>
+
 <section id='warehouse'>
     <div>
         <h4><%= @warehouse.name%> <%= @warehouse.code%></h4>
@@ -9,6 +13,7 @@
         <strong>Endereço: <strong><p><%= @warehouse.address%>, CEP: <%= @warehouse.cep%></p>
     </div>
     <div>
+        <%= link_to 'Editar', edit_warehouse_path%>
         <%= link_to 'Voltar', root_path%>
     </div>
 </section>
