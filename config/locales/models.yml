@@ -11,3 +11,10 @@ pt-BR:
         address: "Endereço"
         cep: "CEP"
         area: "Área"
+      supplier:
+        fantasy_name: "Nome"
+        company_name: "Razão Social"
+        cnpj: "CNPJ"
+        email: "Email"
+        phone: "Telephone"
+        address: "Endereço"

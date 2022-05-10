@@ -1,0 +1,40 @@
+<% if flash[:notice] %>
+  <p style='color: green'><%= flash[:notice]%></p>
+<% end %>
+
+<% if @supplier.errors.any? %>
+    <% @supplier.errors.each do |error| %>
+        <%= @supplier.errors.full_messages %>
+    <% end %>
+<% end %>
+
+<%= form_with model: @supplier do |f| %>
+    <div>
+        <%= f.label :fantasy_name %> 
+        <%= f.text_field :fantasy_name %>
+    </div>
+    <div>
+        <%= f.label :company_name%>
+        <%= f.text_field :company_name %>
+    </div>
+    <div>
+        <%= f.label :cnpj%>
+        <%= f.text_field :cnpj %>
+    </div>
+    <div>
+        <%= f.label :email%>
+        <%= f.text_field :email %>
+    </div>
+    <div>
+        <%= f.label :phone%>
+        <%= f.text_field :phone %>
+    </div>
+    <div>
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+    </div>
+    <div>
+        <%= f.submit 'Enviar' %>
+    </div>
+
+<% end %>

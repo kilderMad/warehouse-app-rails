@@ -1,0 +1,19 @@
+<h1>Fornecedor <%= @supplier.fantasy_name%></h1>
+
+<% if flash[:notice] %>
+  <p style='color: green'><%= flash[:notice]%></p>
+<% end %>
+
+<section id='supplier'>
+    <div>
+        <p>Razão social: <%= @supplier.company_name%></p>
+        <p>CNPJ: <%= @supplier.cnpj%></p>
+        <p>Email: <%= @supplier.email%></p>
+        <p>Telephone: <%= @supplier.phone%></p>
+        <p>Endereço: <%= @supplier.address%></p>
+    </div>
+    <div>
+           
+        <%= link_to 'Voltar', root_path%>
+    </div>
+</section>

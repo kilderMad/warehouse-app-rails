@@ -2,8 +2,12 @@
 <% if flash[:notice] %>
   <p style='color: green'><%= flash[:notice]%></p>
 <% end %>
-
-<%= link_to 'Cadastrar Galpão', new_warehouse_path %>
+<div>
+  <%= link_to 'Cadastrar Galpão', new_warehouse_path %>
+</div>
+<div>
+  <%= link_to 'Cadastrar Fornecedor', new_warehouse_path %>
+</div> 
 
 <% @warehouses.each do |w| %>
   <div>
