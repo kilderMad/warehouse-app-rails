@@ -2,7 +2,7 @@
 
 <% @product_models.each do |pm| %>
   <div>
-    <p><%= pm.name %></p>
+    <p><%= link_to pm.name, pm%></p>
     <p><%= pm.sku %></p>
     <p><%= pm.supplier.fantasy_name %></p>
   </div>
@@ -10,3 +10,4 @@
 <% if @product_models.empty? %>
   <p>Não ha modelos cadastrados</p>
 <% end %>
+<%= link_to 'Cadastrar modelo', new_product_model_path %>

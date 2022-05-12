@@ -3,9 +3,11 @@
 <% end %>
 
 <% if @warehouse.errors.any? %>
+    <ul>
     <% @warehouse.errors.each do |error| %>
-        <%= @warehouse.errors.full_messages %>
+        <li><%= error.full_message %></li>
     <% end %>
+    </ul>
 <% end %>
 
 <%= form_with model: @warehouse do |f| %>

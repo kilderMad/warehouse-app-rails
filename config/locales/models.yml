@@ -18,3 +18,11 @@ pt-BR:
         email: "Email"
         phone: "Telephone"
         address: "Endereço"
+      product_model:
+        name: "Produto"
+        wight: "Peso"
+        width: "Largura"
+        height: "Altura"
+        depth: "Profundidade"
+        sku: "SKU"
+        supplier: "Fornecedor"

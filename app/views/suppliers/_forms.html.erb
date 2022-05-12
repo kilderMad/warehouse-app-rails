@@ -3,9 +3,11 @@
 <% end %>
 
 <% if @supplier.errors.any? %>
+    <ul>
     <% @supplier.errors.each do |error| %>
-        <%= @supplier.errors.full_messages %>
+        <li><%= error.full_message %></li>
     <% end %>
+    </ul>
 <% end %>
 
 <%= form_with model: @supplier do |f| %>
