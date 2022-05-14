@@ -1,7 +1,7 @@
 pt-BR:
   activerecord:
     attributes:
-      user:
+      admin:
         confirmation_sent_at: Confirmação enviada em
         confirmation_token: Token de confirmação
         confirmed_at: Confirmado em
@@ -10,6 +10,7 @@ pt-BR:
         current_sign_in_at: Atualmente logado em
         current_sign_in_ip: IP do acesso atual
         email: E-mail
+        name: Nome
         encrypted_password: Senha criptografada
         failed_attempts: Tentativas sem sucesso
         last_sign_in_at: Último acesso em
@@ -26,7 +27,7 @@ pt-BR:
         unlock_token: Token de desbloqueio
         updated_at: Atualizado em
     models:
-      user:
+      admin:
         one: Usuário
         other: Usuários
   devise:
