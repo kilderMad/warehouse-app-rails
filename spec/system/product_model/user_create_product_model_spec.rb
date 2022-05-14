@@ -4,7 +4,8 @@ describe 'Usuario cadastra um modelo de produto' do
   it 'com sucesso' do
     supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '9663123000109', address: 'Rua vírginio campos, 123',
       email: 'cibertech@company.com.br', phone: '81 981316988')
-
+    user = Admin.create!(email: 'kilder@gmail.com', password: 'password')
+    login_as(user)
     visit root_path
     click_on 'Modelos de produtos'
     click_on 'Cadastrar modelo'
@@ -30,7 +31,9 @@ describe 'Usuario cadastra um modelo de produto' do
   it 'com dados em branco' do
     supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '9663123000109', address: 'Rua vírginio campos, 123',
       email: 'cibertech@company.com.br', phone: '81 981316988')
-
+    
+    user = Admin.create!(email: 'kilder@gmail.com', password: 'password')
+    login_as(user)
     visit root_path
     click_on 'Modelos de produtos'
     click_on 'Cadastrar modelo'

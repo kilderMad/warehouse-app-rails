@@ -1,4 +1,6 @@
 class ProductModelsController < ApplicationController
+    before_action :authenticate_admin!, only: [:index]
+
     def index
         @product_models = ProductModel.all
     end
