@@ -13,9 +13,21 @@
   <body>
     <header>
       <nav>
-        <%= link_to 'Fornecedores', suppliers_path%>
-        <%= link_to 'Modelos de produtos', product_models_path%>
+        <%= link_to 'Fornecedores', suppliers_path%> |
+        <%= link_to 'Modelos de produtos', product_models_path%> |
+        <% if admin_signed_in?%>
+          <%= current_admin.email %>
+          <%= link_to 'Sair', root_path %>
+        <% else %>
+          <%= link_to 'Entrar', new_admin_session_path %>
+        <% end %>
+        
+
       </nav>
+      <div>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
     </header>
     <%= yield %>
   </body>
