@@ -1,4 +1,4 @@
-<h1>pedido</h1>
+<h1><%= Order.model_name.human %></h1>
 
 <% if flash[:notice] %>
   <p style='color: green'><%= flash[:notice]%></p>
@@ -6,10 +6,10 @@
 
 <section id='order'>
     <div>
-        <h2>Galpão destino: <%= @order.warehouse.full_description%> </h2> 
-        <h2>Fornecedor: <%= @order.supplier.fantasy_name%></h2>
-        <h2>Usuário responsavel: <%= @order.admin.name%> | <%= @order.admin.email%></h2>
-        <h2>Data prevista de entrega: <%= I18n.localize(@order.estimated_delivery_date) %></h2>
+        <h2><%= Order.human_attribute_name(:warehouse_id)%>: <%= @order.warehouse.full_description%> </h2> 
+        <h2><%= Order.human_attribute_name(:supplier_id)%>: <%= @order.supplier.fantasy_name%></h2>
+        <h2><%= Order.human_attribute_name(:admin_id)%>: <%= @order.admin.name%> | <%= @order.admin.email%></h2>
+        <h2><%= Order.human_attribute_name(:estimated_delivery_date)%>: <%= I18n.localize(@order.estimated_delivery_date) %></h2>
         
     </div>
     <div>

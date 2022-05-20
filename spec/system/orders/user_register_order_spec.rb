@@ -24,13 +24,13 @@ describe ' usuario cadastra um pedido' do
     click_on 'Registrar Pedido'
     select "GRU - São Paulo", from: 'Galpão destino'
     select supplier.fantasy_name, from: 'Fornecedor'
-    fill_in 'Data Prevista', with: '20/10/2022'
+    fill_in 'Data prevista de entrega', with: '20/10/2022'
     click_on 'Gravar'
 
     expect(page).to have_content 'Pedido registrado com sucesso'
     expect(page).to have_content 'Galpão destino: GRU - São Paulo'
     expect(page).to have_content 'Fornecedor: CiberTech'
     expect(page).to have_content 'Data prevista de entrega: 20/10/2022'
-    expect(page).to have_content "Usuário responsavel: Sergio | sergio@gmail.com"
+    expect(page).to have_content "Usuário responsável: Sergio | sergio@gmail.com"
   end
 end
