@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 describe ' usuario cadastra um pedido' do
+  it 'e deve estar autenticado' do
+    visit root_path
+    click_on 'Registrar Pedido'
+    expect(current_path).to have_content new_admin_session_path
+  end
   it 'com sucesso' do
     Supplier.create!(fantasy_name: 'CIA Tech', company_name: 'Compania e Technologia', cnpj: '9663456000109', address: 'Rua oscar raposo, 523',
       email: 'ciatech@company.com.br', phone: '81 997661256')
@@ -12,19 +17,20 @@ describe ' usuario cadastra um pedido' do
     warehouse = Warehouse.create!(name: 'São Paulo', code: 'GRU', city: 'Guarulhos', area: 100_000,
         address: 'Avenida do aeroporto, 1000', cep: '15000-000',
         description: 'Galpao destinado para cargas internacionais')   
-    user = Admin.create!(email: 'kilder@gmail.com', password: 'password')
+    user = Admin.create!(email: 'sergio@gmail.com', password: 'password', name: 'Sergio')
     login_as(user)
-    
+
     visit root_path
     click_on 'Registrar Pedido'
-    select warehouse.name, from: 'Galpão destino'
+    select "GRU - São Paulo", from: 'Galpão destino'
     select supplier.fantasy_name, from: 'Fornecedor'
     fill_in 'Data Prevista', with: '20/10/2022'
     click_on 'Gravar'
 
     expect(page).to have_content 'Pedido registrado com sucesso'
-    expect(page).to have_content 'Galpão destino: São Paulo'
+    expect(page).to have_content 'Galpão destino: GRU - São Paulo'
     expect(page).to have_content 'Fornecedor: CiberTech'
-    expect(page).to have_content "Usuário responsavel: Sergio <sergio@gmail.com>"
+    expect(page).to have_content 'Data prevista de entrega: 20/10/2022'
+    expect(page).to have_content "Usuário responsavel: Sergio | sergio@gmail.com"
   end
 end

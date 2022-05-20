@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_20_140455) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_20_141543) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -27,12 +27,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_20_140455) do
   create_table "orders", force: :cascade do |t|
     t.integer "warehouse_id", null: false
     t.integer "supplier_id", null: false
-    t.integer "user_id", null: false
+    t.integer "admin_id", null: false
     t.date "estimated_delivery_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_orders_on_admin_id"
     t.index ["supplier_id"], name: "index_orders_on_supplier_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
     t.index ["warehouse_id"], name: "index_orders_on_warehouse_id"
   end
 
@@ -72,8 +72,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_20_140455) do
     t.string "description"
   end
 
+  add_foreign_key "orders", "admins"
   add_foreign_key "orders", "suppliers"
-  add_foreign_key "orders", "users"
   add_foreign_key "orders", "warehouses"
   add_foreign_key "product_models", "suppliers"
 end

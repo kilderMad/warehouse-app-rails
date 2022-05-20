@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :warehouses
   resources :suppliers, only: [:index, :show, :create, :new, :edit, :update]
   resources :product_models, only: [:index, :show, :create, :new, :edit, :update]
-  resources :orders, only: [:new, :create]
+  resources :orders, only: [:new, :create, :show]
 end

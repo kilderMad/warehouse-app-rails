@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
   belongs_to :warehouse
   belongs_to :supplier
-  belongs_to :user
+  belongs_to :admin
 end

@@ -1,0 +1,18 @@
+<h1>pedido</h1>
+
+<% if flash[:notice] %>
+  <p style='color: green'><%= flash[:notice]%></p>
+<% end %>
+
+<section id='order'>
+    <div>
+        <h2>Galpão destino: <%= @order.warehouse.full_description%> </h2> 
+        <h2>Fornecedor: <%= @order.supplier.fantasy_name%></h2>
+        <h2>Usuário responsavel: <%= @order.admin.name%> | <%= @order.admin.email%></h2>
+        <h2>Data prevista de entrega: <%= I18n.localize(@order.estimated_delivery_date) %></h2>
+        
+    </div>
+    <div>
+        
+    </div>
+</section>

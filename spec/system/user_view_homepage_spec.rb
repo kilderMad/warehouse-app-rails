@@ -5,6 +5,7 @@ describe 'O usuario entra na home' do
         visit('/')
         
         expect(page).to have_content('Galpões e Estoque')
+        expect(page).to have_link('Galpões e Estoque', href: root_path)
     end
 
     it 'e vê todos os galpões cadastrados' do

@@ -26,3 +26,8 @@ pt-BR:
         depth: "Profundidade"
         sku: "SKU"
         supplier: "Fornecedor"
+      order:
+        warehouse_id: "Galpão destino"
+        supplier_id: "Fornecedor"
+        supplier: "Fornecedor"
+        warehouse: "Galpão"
