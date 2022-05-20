@@ -18,8 +18,9 @@ describe ' usuario cadastra um pedido' do
         address: 'Avenida do aeroporto, 1000', cep: '15000-000',
         description: 'Galpao destinado para cargas internacionais')   
     user = Admin.create!(email: 'sergio@gmail.com', password: 'password', name: 'Sergio')
-    login_as(user)
+    allow(SecureRandom).to receive(:alphanumeric).and_return('ABC12345')
 
+    login_as(user)
     visit root_path
     click_on 'Registrar Pedido'
     select "GRU - São Paulo", from: 'Galpão destino'
@@ -28,6 +29,7 @@ describe ' usuario cadastra um pedido' do
     click_on 'Gravar'
 
     expect(page).to have_content 'Pedido registrado com sucesso'
+    expect(page).to have_content 'Pedido ABC12345'
     expect(page).to have_content 'Galpão destino: GRU - São Paulo'
     expect(page).to have_content 'Fornecedor: CiberTech'
     expect(page).to have_content 'Data prevista de entrega: 20/10/2022'
