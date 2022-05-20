@@ -31,3 +31,4 @@ pt-BR:
         supplier_id: "Fornecedor"
         supplier: "Fornecedor"
         warehouse: "Galpão"
+        estimated_delivery_date: "Data Prevista"
