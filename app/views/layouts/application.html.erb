@@ -15,6 +15,7 @@
       <nav>
         <%= link_to 'Fornecedores', suppliers_path%> |
         <%= link_to 'Modelos de produtos', product_models_path%> |
+        <%= link_to 'Registrar Pedido', new_order_path%> |
         <% if admin_signed_in?%>
           <%= current_admin.email %> |
           <%= button_to 'Sair', destroy_admin_session_path, method: :delete %>

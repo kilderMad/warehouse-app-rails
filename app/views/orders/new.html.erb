@@ -1,0 +1,8 @@
+<h1>Registrar pedido</h1>
+
+<%= form_with model: @order do |f|%>
+  <div>
+    <%= f.label :warehouse_id %>
+    <%= f.collection_select :warehouse_id, @warehouses, :id, :name %>
+  </div>
+<%end%>
