@@ -4,7 +4,9 @@ pt-BR:
       warehouse: "Galpão"
       supplier: "Fornecedor"
       product_model: "Modelo de produto"
-      order: "Pedido"
+      order: 
+        one: Pedido
+        other: "Pedidos"
     attributes:
       warehouse:
         name: "Nome"
@@ -36,3 +38,4 @@ pt-BR:
         supplier: "Fornecedor"
         warehouse: "Galpão"
         estimated_delivery_date: "Data prevista de entrega"
+        code: "Código"
