@@ -1,7 +1,3 @@
 <h1>Resultados da busca por: <%= @code %></h1>
 <p><%= @orders.count %> <%= Order.model_name.human(count: @orders.count)%> <%= t(:found, count: @orders.count)%></p>
-<% if @orders.present? %>
-  <% @orders.each do |order|%>   
-    <%= render order %>
-  <%end%>
-<% end %>
+<%= render @orders %>
