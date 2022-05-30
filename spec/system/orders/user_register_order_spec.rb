@@ -28,6 +28,7 @@ describe ' usuario cadastra um pedido' do
     fill_in 'Data prevista de entrega', with: '20/10/2022'
     click_on 'Gravar'
 
+    expect(page).to have_content 'Status: Pendente'
     expect(page).to have_content 'Pedido registrado com sucesso'
     expect(page).to have_content 'Pedido ABC12345'
     expect(page).to have_content 'Galpão destino: GRU - São Paulo'

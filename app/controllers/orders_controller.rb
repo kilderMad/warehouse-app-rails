@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_admin!
-  before_action :check_user, only: [:show, :edit, :update]
+  before_action :check_user, only: [:show, :edit, :update, :delivered, :canceled]
 
   def index
     if current_admin
@@ -46,6 +46,16 @@ class OrdersController < ApplicationController
   def search
     @code = params["query"]
     @orders = Order.where("code LIKE ?", "%#{@code}%")
+  end
+
+  def canceled
+    @order.canceled!
+    redirect_to order_path
+  end
+
+  def delivered
+    @order.delivered!
+    redirect_to order_path
   end
 
   private

@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  enum status: { pending: 5, delivered: 10, canceled: 9}
+
   validates :code, :estimated_delivery_date, presence: true
   validate :estimated_delivery_date_is_future
 

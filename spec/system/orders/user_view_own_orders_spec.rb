@@ -17,16 +17,23 @@ describe 'usuario ve seus propios pedidos' do
     user = Admin.create!(name: 'joao', email: 'joao@gmail.com', password:'password')
     user2 = Admin.create!(name: 'kilder', email: 'kilder@gmail.com', password:'password')
     allow(SecureRandom).to receive(:alphanumeric).and_return('SPC00001')
-    order2 = Order.create!(admin: user, warehouse: warehouse, supplier: supplier, estimated_delivery_date: 2.day.from_now)
+    order1 = Order.create!(admin: user, warehouse: warehouse, supplier: supplier, estimated_delivery_date: 2.day.from_now, status: 'pending')
+    allow(SecureRandom).to receive(:alphanumeric).and_return('SPC00001')
+    order2 = Order.create!(admin: user, warehouse: warehouse, supplier: supplier, estimated_delivery_date: 2.day.from_now, status: 'delivered')
     allow(SecureRandom).to receive(:alphanumeric).and_return('RCF98765')
-    order3 = Order.create!(admin: user2, warehouse: warehouse, supplier: supplier, estimated_delivery_date: 3.day.from_now)
+    order3 = Order.create!(admin: user2, warehouse: warehouse, supplier: supplier, estimated_delivery_date: 3.day.from_now,status: 'canceled')
     
     login_as(user)
     visit root_path
     click_on 'Meus Pedidos'
 
+    expect(page).to have_content order1.code
+    expect(page).to have_content 'Pendente'
     expect(page).to have_content order2.code
+    expect(page).to have_content 'Entregue'
     expect(page).not_to have_content order3.code
+    expect(page).not_to have_content 'Cancelado'
+
   end
 
   it 'e visita um pedido' do

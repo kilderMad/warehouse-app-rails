@@ -1,4 +1,7 @@
 pt-BR:
+  pending: "Pendente"
+  delivered: "Entregue"
+  canceled: "Cancelado"
   found: 
     one: 'encontrado'
     other: 'encontrados'

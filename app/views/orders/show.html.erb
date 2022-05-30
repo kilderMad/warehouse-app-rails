@@ -7,6 +7,7 @@
 
 <section id='order'>
     <div>
+      Status: <%=t @order.status%> 
       <h2><%= Order.human_attribute_name(:warehouse_id)%>: <%= @order.warehouse.full_description%> </h2> 
       <h2><%= Order.human_attribute_name(:supplier_id)%>: <%= @order.supplier.fantasy_name%></h2>
       <h2><%= Order.human_attribute_name(:admin_id)%>: <%= @order.admin.name%> | <%= @order.admin.email%></h2>
@@ -14,5 +15,7 @@
     </div>
     <div>
         <%= link_to 'Editar', edit_order_path(@order)%>
+        <%= button_to 'Entregue', delivered_order_path(@order), method: :patch%>
+        <%= button_to 'Cancelado', canceled_order_path(@order), method: :patch%>
     </div>
 </section>
