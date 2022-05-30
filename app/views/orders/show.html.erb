@@ -1,4 +1,5 @@
-<h1><%= Order.model_name.human %> <%= @order.code%></h1>
+<h1>Detalhes do Pedido</h1>
+<h2><%= Order.model_name.human %> <%= @order.code%></h2>
 
 <% if flash[:notice] %>
   <p style='color: green'><%= flash[:notice]%></p>
@@ -6,13 +7,12 @@
 
 <section id='order'>
     <div>
-        <h2><%= Order.human_attribute_name(:warehouse_id)%>: <%= @order.warehouse.full_description%> </h2> 
-        <h2><%= Order.human_attribute_name(:supplier_id)%>: <%= @order.supplier.fantasy_name%></h2>
-        <h2><%= Order.human_attribute_name(:admin_id)%>: <%= @order.admin.name%> | <%= @order.admin.email%></h2>
-        <h2><%= Order.human_attribute_name(:estimated_delivery_date)%>: <%= I18n.localize(@order.estimated_delivery_date) %></h2>
-        
+      <h2><%= Order.human_attribute_name(:warehouse_id)%>: <%= @order.warehouse.full_description%> </h2> 
+      <h2><%= Order.human_attribute_name(:supplier_id)%>: <%= @order.supplier.fantasy_name%></h2>
+      <h2><%= Order.human_attribute_name(:admin_id)%>: <%= @order.admin.name%> | <%= @order.admin.email%></h2>
+      <h2><%= Order.human_attribute_name(:estimated_delivery_date)%>: <%= I18n.localize(@order.estimated_delivery_date) %></h2>        
     </div>
     <div>
-        
+        <%= link_to 'Editar', edit_order_path(@order)%>
     </div>
 </section>
