@@ -7,6 +7,8 @@ class Order < ApplicationRecord
   belongs_to :warehouse
   belongs_to :supplier
   belongs_to :admin
+  has_many :order_items
+  has_many :product_models, through: :order_items
 
   before_validation :generate_code
 

@@ -13,6 +13,15 @@
       <h2><%= Order.human_attribute_name(:admin_id)%>: <%= @order.admin.name%> | <%= @order.admin.email%></h2>
       <h2><%= Order.human_attribute_name(:estimated_delivery_date)%>: <%= I18n.localize(@order.estimated_delivery_date) %></h2>        
     </div>
+    
+    <div>
+      <h2>Itens do Pedido</h2>
+
+      <% @order.order_items.each do |item|%>
+        <%= item.quantity %> x <%= item.product_model.name %>
+      <% end %>
+    </div>
+
     <div>
         <%= link_to 'Editar', edit_order_path(@order)%>
         <%= button_to 'Entregue', delivered_order_path(@order), method: :patch%>
