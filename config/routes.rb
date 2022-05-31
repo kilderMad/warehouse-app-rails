@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :suppliers, only: [:index, :show, :create, :new, :edit, :update]
   resources :product_models, only: [:index, :show, :create, :new, :edit, :update]
   resources :orders, only: [:new, :create, :show, :index, :edit, :update] do
+    resources :order_items, only: [:new, :create]
     get 'search', on: :collection
     member do
       patch :delivered

@@ -40,3 +40,7 @@ pt-BR:
         estimated_delivery_date: "Data prevista de entrega"
         code: "Código"
         status: "Status"
+      order_item:
+        product_model_id: "Produto"
+        order_id: 'Pedido'
+        quantity: 'Quantidade'
