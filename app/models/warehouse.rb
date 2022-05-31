@@ -4,6 +4,8 @@ class Warehouse < ApplicationRecord
     validates :cep, format: { with: /\d{5}-?\d{3}/ }
     validates :name, uniqueness: true 
     
+    has_many :stock_products
+
     def full_description
         "#{code} - #{name}"
     end

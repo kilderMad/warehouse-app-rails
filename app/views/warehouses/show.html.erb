@@ -15,6 +15,15 @@
     <div>
         <%= button_to 'Remover', warehouse_path(@warehouse.id), method: :delete %>
         <%= link_to 'Editar', edit_warehouse_path%>       
-        <%= link_to 'Voltar', root_path%>
+        
     </div>
+    <div>
+        <h2>Itens em estoque</h2>
+
+        <% @stocks.each_pair do |pm, qtt| %>
+            <%= qtt %> x <%= pm.name %>
+        <% end %>
+    </div>
+    
+    <%= link_to 'Voltar', root_path%>
 </section>
