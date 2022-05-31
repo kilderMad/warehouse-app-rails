@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_31_141209) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_31_183454) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -61,6 +61,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_141209) do
     t.index ["supplier_id"], name: "index_product_models_on_supplier_id"
   end
 
+  create_table "stock_products", force: :cascade do |t|
+    t.integer "warehouse_id", null: false
+    t.integer "product_model_id", null: false
+    t.integer "order_id", null: false
+    t.string "serial_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_stock_products_on_order_id"
+    t.index ["product_model_id"], name: "index_stock_products_on_product_model_id"
+    t.index ["warehouse_id"], name: "index_stock_products_on_warehouse_id"
+  end
+
   create_table "suppliers", force: :cascade do |t|
     t.string "fantasy_name"
     t.string "company_name"
@@ -90,4 +102,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_141209) do
   add_foreign_key "orders", "suppliers"
   add_foreign_key "orders", "warehouses"
   add_foreign_key "product_models", "suppliers"
+  add_foreign_key "stock_products", "orders"
+  add_foreign_key "stock_products", "product_models"
+  add_foreign_key "stock_products", "warehouses"
 end

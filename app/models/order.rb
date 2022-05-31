@@ -10,7 +10,7 @@ class Order < ApplicationRecord
   has_many :order_items
   has_many :product_models, through: :order_items
 
-  before_validation :generate_code
+  before_validation :generate_code, on: :create
 
   private
 
