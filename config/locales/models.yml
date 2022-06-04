@@ -44,3 +44,6 @@ pt-BR:
         product_model_id: "Produto"
         order_id: 'Pedido'
         quantity: 'Quantidade'
+      stock_product_destination:
+        recipient: 'Destinatario'
+        address: 'Endereço destino'

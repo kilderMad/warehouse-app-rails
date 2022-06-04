@@ -17,11 +17,27 @@
         <%= link_to 'Editar', edit_warehouse_path%>       
         
     </div>
-    <div>
+    <div id='estoque'>
         <h2>Itens em estoque</h2>
 
         <% @stocks.each_pair do |pm, qtt| %>
             <%= qtt %> x <%= pm.name %>
+        <% end %>
+    </div>
+
+    <div>
+        <h2>Saida de Estoque</h2>
+        <%= form_with url: warehouse_stock_product_destinations_path(@warehouse.id) do |f| %>
+            <%= f.label :product_model_id, 'Item para Saída' %>
+            <%= f.collection_select :product_model_id, @product_models, :id, :name %>
+
+            <%= f.label :recipient, 'Destinatario' %>
+            <%= f.text_field :recipient %>
+
+            <%= f.label :adress, 'Endereço destino' %>
+            <%= f.text_field :adress %>
+
+            <%= f.submit 'Confirmar retirada'%>
         <% end %>
     </div>
     
