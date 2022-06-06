@@ -14,4 +14,11 @@ Rails.application.routes.draw do
       patch :canceled
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :warehouses, only: [:show, :index, :create]
+    end
+  end
+
 end
