@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :warehouses, only: %i[show index create]
+      post 'stock_update', to: 'stock_products#stock_update'
     end
   end
-
 end

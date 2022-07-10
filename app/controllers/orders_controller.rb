@@ -57,7 +57,7 @@ class OrdersController < ApplicationController
     @order.delivered!
 
     @order.order_items.each do |item|
-      item.quantity.times do 
+      item.quantity.times do
         StockProduct.create!(order: @order, product_model: item.product_model, warehouse: @order.warehouse)
       end
     end
@@ -70,7 +70,7 @@ class OrdersController < ApplicationController
   def check_user
     @order = Order.find(params[:id])
     if @order.admin != current_admin
-      return redirect_to root_path, notice: 'Pedido não existe'
+      redirect_to root_path, notice: 'Pedido não existe'
     end
   end
 end
