@@ -12,8 +12,8 @@
   </head>
 
   <body>
-    <header>
-      <nav>
+    <header class='p-5 space-y-3'>
+      <nav class=''>
         <%= link_to root_path do %>
         <h1>Galpões e Estoque</h1>
         <% end %>
@@ -34,8 +34,6 @@
         <% else %>
           <%= link_to 'Entrar', new_admin_session_path %>
         <% end %>
-        
-
       </nav>
       <div>
         <p class="notice"><%= notice %></p>

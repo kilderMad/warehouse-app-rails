@@ -1,13 +1,75 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/*
-
 @layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+.btn-primary {
+  @apply py-1 my-1 px-3 rounded-md bg-blue-800 hover:bg-blue-900 text-white font-semibold cursor-pointer inline-block text-center;
 }
 
-*/
+.btn-second {
+  @apply py-1 my-1 px-3 rounded-md bg-teal-900 hover:bg-cyan-900 text-white font-semibold cursor-pointer inline-block text-center;
+}
+
+.btn-activate {
+  @apply py-1 my-1 px-3 rounded-md bg-green-500 text-white font-semibold cursor-pointer inline-block text-center;
+}
+
+.btn-deactivate {
+  @apply py-1 my-1 px-3 rounded-md bg-red-500 text-white font-semibold cursor-pointer inline-block text-center;
+}
+
+.form {
+  @apply h-[100%] items-center flex ;
+}
+
+.form>div {
+  @apply flex flex-col justify-center items-center p-10 m-auto space-y-4 bg-zinc-900 shadow-2xl rounded-lg mt-10
+}
+
+.form>div>div.field {
+  @apply flex flex-col max-w-[250px];
+}
+
+.form>div>div.field input{
+  @apply text-black rounded-md
+}
+
+h1.title {
+  @apply text-lg font-semibold pb-2;
+}
+
+div.grid-list {
+  @apply m-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+}
+
+section.container {
+  @apply pt-5 px-[2%] w-full;
+}
+
+div.card {
+  @apply shadow-lg rounded-md overflow-hidden;
+}
+html {
+  @apply h-full
+}
+body {
+  @apply bg-gradient-to-t from-teal-900 to-slate-900 w-full p-0 m-0 text-slate-300 h-max;
+}
+
+a {
+  @apply hover:text-gray-50 font-semibold
+}
+
+h1 { 
+  @apply font-semibold text-4xl
+}
+
+h2 { 
+  @apply font-semibold text-2xl
+}
+
+h3 { 
+  @apply font-semibold text-lg
+}
+
+}
