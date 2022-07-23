@@ -1,7 +1,3 @@
-<% if flash[:notice] %>
-  <p style='color: green'><%= flash[:notice]%></p>
-<% end %>
-
 <% if @product_model.errors.any? %>
     <ul>
     <% @product_model.errors.each do |error| %>
@@ -9,38 +5,40 @@
     <% end %>
     </ul>
 <% end %>
-
-<%= form_with model: @product_model do |f| %>
+<section class='container'>
+<%= form_with model: @product_model, html: { class: 'form'} do |f| %>
     <div>
-        <%= f.label :name %> 
-        <%= f.text_field :name %>
+        <div class='field'>
+            <%= f.label :name %> 
+            <%= f.text_field :name %>
+        </div>
+        <div class='field'>
+            <%= f.label :sku%>
+            <%= f.text_field :sku %>
+        </div>
+        <div class='field'>
+            <%= f.label :supplier_id, 'Fornecedor' %>
+            <%= f.collection_select :supplier_id, @suppliers, :id, :fantasy_name %>
+        </div>
+        <div class='field'>
+            <%= f.label :wight%>
+            <%= f.number_field :wight %>
+        </div>
+        <div class='field'>
+            <%= f.label :width%>
+            <%= f.number_field :width %>
+        </div>
+        <div class='field'>
+            <%= f.label :height %>
+            <%= f.number_field :height %>
+        </div>
+        <div class='field'>
+            <%= f.label :depth %>
+            <%= f.number_field :depth %>
+        </div>
+        <div class='w-full'>
+            <%= f.submit 'Enviar', class:'btn-primary w-full'%>
+        </div>
     </div>
-    <div>
-        <%= f.label :sku%>
-        <%= f.text_field :sku %>
-    </div>
-    <div>
-        <%= f.label :supplier_id, 'Fornecedor' %>
-        <%= f.collection_select :supplier_id, @suppliers, :id, :fantasy_name %>
-    </div>
-    <div>
-        <%= f.label :wight%>
-        <%= f.number_field :wight %>
-    </div>
-    <div>
-        <%= f.label :width%>
-        <%= f.number_field :width %>
-    </div>
-    <div>
-        <%= f.label :height %>
-        <%= f.number_field :height %>
-    </div>
-    <div>
-        <%= f.label :depth %>
-        <%= f.number_field :depth %>
-    </div>
-    <div>
-        <%= f.submit 'Enviar' %>
-    </div>
-
 <% end %>
+</section>

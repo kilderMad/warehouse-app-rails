@@ -1,7 +1,3 @@
-<% if flash[:notice] %>
-  <p style='color: green'><%= flash[:notice]%></p>
-<% end %>
-
 <% if @warehouse.errors.any? %>
     <ul>
     <% @warehouse.errors.each do |error| %>
@@ -9,38 +5,40 @@
     <% end %>
     </ul>
 <% end %>
-
-<%= form_with model: @warehouse do |f| %>
+<section class="container">
+<%= form_with model: @warehouse, html: { class: 'form'} do |f| %>
     <div>
-        <%= f.label :name %> 
-        <%= f.text_field :name %> <%= @warehouse.errors.full_messages_for(:name)%>
+        <div class='field'>
+            <%= f.label :name %> 
+            <%= f.text_field :name %> <%= @warehouse.errors.full_messages_for(:name)%>
+        </div>
+        <div class='field'>
+            <%= f.label :code%>
+            <%= f.text_field :code %>
+        </div>
+        <div class='field'>
+            <%= f.label :area%>
+            <%= f.number_field :area %>
+        </div>
+        <div class='field'>
+            <%= f.label :cep%>
+            <%= f.text_field :cep %>
+        </div>
+        <div class='field'>
+            <%= f.label :city%>
+            <%= f.text_field :city %>
+        </div>
+        <div class='field'>
+            <%= f.label :address %>
+            <%= f.text_field :address %>
+        </div>
+        <div class='field'> 
+            <%= f.label :description %>
+            <%= f.text_area :description %>
+        </div>
+        <div class='w-full'>
+            <%= f.submit 'Enviar', class: 'btn-primary w-full'%>
+        </div>
     </div>
-    <div>
-        <%= f.label :code%>
-        <%= f.text_field :code %>
-    </div>
-    <div>
-        <%= f.label :area%>
-        <%= f.number_field :area %>
-    </div>
-    <div>
-        <%= f.label :cep%>
-        <%= f.text_field :cep %>
-    </div>
-    <div>
-        <%= f.label :city%>
-        <%= f.text_field :city %>
-    </div>
-    <div>
-        <%= f.label :address %>
-        <%= f.text_field :address %>
-    </div>
-    <div>
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-    </div>
-    <div>
-        <%= f.submit 'Enviar' %>
-    </div>
-
 <% end %>
+</section>
