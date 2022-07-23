@@ -19,18 +19,23 @@ gem "puma", "~> 5.0"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 gem "devise"
+gem "importmap-rails", "~> 1.0"
+gem "kaminari"
+gem 'factory_bot'
+gem 'friendly_id', '~> 5.4.0'
+gem 'faker'
+gem 'paginate'
+gem "tailwindcss-rails", "~> 2.0"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "rspec-rails"
   gem "capybara"
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
-
-gem "importmap-rails", "~> 1.0"
