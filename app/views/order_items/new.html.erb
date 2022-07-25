@@ -10,6 +10,9 @@
       <div class='field'>
         <%= f.label :quantity %>
         <%= f.number_field :quantity %>
+        <% if @order_item.errors.any?%>
+          <p class=' text-red-600'><%= @order_item.errors.full_messages_for(:quantity).first %></p>
+        <% end %>
       </div>
       <div class='w-full'>
         <%= f.submit 'Adicionar', class:'btn-primary w-full' %>

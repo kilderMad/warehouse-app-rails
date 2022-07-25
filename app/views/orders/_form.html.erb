@@ -1,11 +1,10 @@
-
 <section class="container">
   <%= form_with model: @order, html: { class: 'form'} do |f|%>
     <div>
       <h1><%= Order.model_name.human%></h1>
       <div class='field'>
         <%= f.label :warehouse_id %>
-        <%= f.collection_select :warehouse_id, @warehouses, :id, :full_description %>
+        <%= f.collection_select :warehouse_id, @warehouses, :id, :full_description %>        
       </div>
       <div class='field'>
         <%= f.label :supplier_id %>
@@ -14,9 +13,12 @@
       <div class='field'>
         <%= f.label :estimated_delivery_date%>
         <%= f.date_field :estimated_delivery_date %>
+        <% if @order.errors.any?%>
+          <p class=' text-red-600'><%= @order.errors.full_messages_for(:estimated_delivery_date).first %></p>
+        <% end %>
       </div>
       <div class="w-full">
-        <%= f.submit 'Gravar', class='btn-primary w-full'%>
+        <%= f.submit 'Gravar', class:'btn-primary w-full'%>
       </div>
     </div>  
   <%end%>

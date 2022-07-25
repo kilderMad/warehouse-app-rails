@@ -1,40 +1,56 @@
-<% if @product_model.errors.any? %>
-    <ul>
-    <% @product_model.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-    <% end %>
-    </ul>
-<% end %>
 <section class='container'>
 <%= form_with model: @product_model, html: { class: 'form'} do |f| %>
     <div>
+        <h1>Novo Modelo de produto</h1>
+
         <div class='field'>
             <%= f.label :name %> 
             <%= f.text_field :name %>
+            <% if @product_model.errors.any?%>
+                <p class=' text-red-600'><%= @product_model.errors.full_messages_for(:name).first %></p>
+            <% end %>
         </div>
         <div class='field'>
             <%= f.label :sku%>
             <%= f.text_field :sku %>
+            <% if @product_model.errors.any?%>
+                <p class=' text-red-600'><%= @product_model.errors.full_messages_for(:sku).first %></p>
+            <% end %>
         </div>
         <div class='field'>
             <%= f.label :supplier_id, 'Fornecedor' %>
             <%= f.collection_select :supplier_id, @suppliers, :id, :fantasy_name %>
+            <% if @product_model.errors.any?%>
+                <p class=' text-red-600'><%= @product_model.errors.full_messages_for(:supplier_id).first %></p>
+            <% end %>
         </div>
         <div class='field'>
             <%= f.label :wight%>
             <%= f.number_field :wight %>
+            <% if @product_model.errors.any?%>
+                <p class=' text-red-600'><%= @product_model.errors.full_messages_for(:wight).first %></p>
+            <% end %>
         </div>
         <div class='field'>
             <%= f.label :width%>
             <%= f.number_field :width %>
+            <% if @product_model.errors.any?%>
+                <p class=' text-red-600'><%= @product_model.errors.full_messages_for(:width).first %></p>
+            <% end %>
         </div>
         <div class='field'>
             <%= f.label :height %>
             <%= f.number_field :height %>
+            <% if @product_model.errors.any?%>
+                <p class=' text-red-600'><%= @product_model.errors.full_messages_for(:height).first %></p>
+            <% end %>
         </div>
         <div class='field'>
             <%= f.label :depth %>
             <%= f.number_field :depth %>
+            <% if @product_model.errors.any?%>
+                <p class=' text-red-600'><%= @product_model.errors.full_messages_for(:depth).first %></p>
+            <% end %>
         </div>
         <div class='w-full'>
             <%= f.submit 'Enviar', class:'btn-primary w-full'%>

@@ -1,36 +1,49 @@
-<% if @supplier.errors.any? %>
-    <ul>
-    <% @supplier.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-    <% end %>
-    </ul>
-<% end %>
 <section class="container">
 <%= form_with model: @supplier, html: { class: 'form'} do |f| %>
     <div>
+        <h1>Novo Fornecedor</h1>
+
         <div class='field'>
             <%= f.label :fantasy_name %> 
             <%= f.text_field :fantasy_name %>
+            <% if @supplier.errors.any?%>
+                <p class=' text-red-600'><%= @supplier.errors.full_messages_for(:fantasy_name).first %></p>
+            <% end %>
         </div>
         <div class='field'>
             <%= f.label :company_name%>
             <%= f.text_field :company_name %>
+            <% if @supplier.errors.any?%>
+                <p class=' text-red-600'><%= @supplier.errors.full_messages_for(:company_name).first %></p>
+            <% end %>
         </div>
         <div class='field'>
             <%= f.label :cnpj%>
             <%= f.text_field :cnpj %>
+            <% if @supplier.errors.any?%>
+                <p class=' text-red-600'><%= @supplier.errors.full_messages_for(:cnpj).first %></p>
+            <% end %>
         </div>
         <div class='field'>
             <%= f.label :email%>
             <%= f.text_field :email %>
+            <% if @supplier.errors.any?%>
+                <p class=' text-red-600'><%= @supplier.errors.full_messages_for(:email).first %></p>
+            <% end %>
         </div>
         <div class='field'>
             <%= f.label :phone%>
             <%= f.text_field :phone %>
+            <% if @supplier.errors.any?%>
+                <p class=' text-red-600'><%= @supplier.errors.full_messages_for(:phone).first %></p>
+            <% end %>
         </div>
         <div class='field'>
             <%= f.label :address %>
             <%= f.text_field :address %>
+            <% if @supplier.errors.any?%>
+                <p class=' text-red-600'><%= @supplier.errors.full_messages_for(:address).first %></p>
+            <% end %>
         </div>
         <div class='w-full'>
             <%= f.submit 'Enviar', class: 'btn-primary w-full'%>
