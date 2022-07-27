@@ -43,7 +43,7 @@ div.grid-list {
 }
 
 section.container {
-  @apply pt-5 px-[2%] w-full;
+  @apply pt-5 px-[2%] mx-auto w-full;
 }
 
 div.card {

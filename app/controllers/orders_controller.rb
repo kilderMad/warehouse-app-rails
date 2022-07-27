@@ -1,13 +1,11 @@
 class OrdersController < ApplicationController
   before_action :authenticate_admin!
-  before_action :check_user, only: [:show, :edit, :update, :delivered, :canceled]
+  before_action :check_user, only: %i[show edit update delivered canceled]
 
   def index
-    if current_admin
-      @orders = current_admin.orders
-    end
+    current_admin && @orders = current_admin.orders
   end
-  
+
   def new
     @order = Order.new
     @warehouses = Warehouse.all
@@ -22,9 +20,7 @@ class OrdersController < ApplicationController
     redirect_to @order, notice: 'Pedido registrado com sucesso'
   end
 
-  def show 
-    
-  end
+  def show; end
 
   def edit
     @warehouses = Warehouse.all
@@ -33,7 +29,7 @@ class OrdersController < ApplicationController
 
   def update
     order_params = params.require(:order).permit(:warehouse_id, :supplier_id, :admin_id, :estimated_delivery_date)
-    
+
     if @order.update(order_params)
       redirect_to order_path, notice: 'Pedido atualizado com sucesso.'
     else
@@ -44,8 +40,8 @@ class OrdersController < ApplicationController
   end
 
   def search
-    @code = params["query"]
-    @orders = Order.where("code LIKE ?", "%#{@code}%")
+    @code = params['query']
+    @orders = Order.where('code LIKE ?', "%#{@code}%")
   end
 
   def canceled
@@ -69,8 +65,6 @@ class OrdersController < ApplicationController
 
   def check_user
     @order = Order.find(params[:id])
-    if @order.admin != current_admin
-      redirect_to root_path, notice: 'Pedido não existe'
-    end
+    @order.admin != current_admin && redirect_to(root_path, notice: 'Pedido não existe')
   end
 end
