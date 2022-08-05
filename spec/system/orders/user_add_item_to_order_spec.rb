@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'usuario adiciona itens ao pedido' do
   it 'com sucesso' do
     user = Admin.create!(email: 'sergio@gmail.com', password: 'password', name: 'Sergio')
-    supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '9663123000109', address: 'Rua vírginio campos, 123',
+    supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '96631230001091', address: 'Rua vírginio campos, 123',
       email: 'cibertech@company.com.br', phone: '81 981316988')
     warehouse = Warehouse.create!(name: 'Recife', code: 'RCF', city: 'Recife', area: 90_000,
       address: 'Avenida do aeroporto, 1000', cep: '15000-000',
@@ -29,9 +29,9 @@ describe 'usuario adiciona itens ao pedido' do
 
   it 'e não ver produtos de outro fornecedor' do
     user = Admin.create!(email: 'sergio@gmail.com', password: 'password', name: 'Sergio')
-    supplier1 = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '9663123000109', address: 'Rua vírginio campos, 123',
+    supplier1 = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '96631230001091', address: 'Rua vírginio campos, 123',
       email: 'cibertech@company.com.br', phone: '81 981316988')
-    supplier2 = Supplier.create!(fantasy_name: 'PlinTech', company_name: 'Plin Technology', cnpj: '2663123000109', address: 'Rua campos, 123',
+    supplier2 = Supplier.create!(fantasy_name: 'PlinTech', company_name: 'Plin Technology', cnpj: '26631230001091', address: 'Rua campos, 123',
       email: 'plintech@company.com.br', phone: '81 181316988')
     warehouse = Warehouse.create!(name: 'Recife', code: 'RCF', city: 'Recife', area: 90_000,
       address: 'Avenida do aeroporto, 1000', cep: '15000-000',

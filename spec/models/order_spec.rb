@@ -37,7 +37,7 @@ RSpec.describe Order, type: :model do
   describe 'gera um codigo aleatorio' do
     it 'ao criar um novo pedido' do
       user = Admin.create!(email: 'sergio@gmail.com', password: 'password', name: 'Sergio')
-      supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '9663123000109',
+      supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '96631230001091',
                                   address: 'Rua vírginio campos, 123',
                                   email: 'cibertech@company.com.br', phone: '81 981316988')
       warehouse = Warehouse.create!(name: 'São Paulo', code: 'GRU', city: 'Guarulhos', area: 100_000,
@@ -54,7 +54,7 @@ RSpec.describe Order, type: :model do
 
     it 'e o codigo é unico' do
       user = Admin.create!(email: 'sergio@gmail.com', password: 'password', name: 'Sergio')
-      supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '9663123000109',
+      supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '96631230001091',
                                   address: 'Rua vírginio campos, 123',
                                   email: 'cibertech@company.com.br', phone: '81 981316988')
       warehouse = Warehouse.create!(name: 'São Paulo', code: 'GRU', city: 'Guarulhos', area: 100_000,

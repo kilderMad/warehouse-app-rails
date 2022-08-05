@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe 'usuario informa novo status de pedido ' do
   it 'e pedido foi entregue' do
-    Supplier.create!(fantasy_name: 'CIA Tech', company_name: 'Compania e Technologia', cnpj: '9663456000109', address: 'Rua oscar raposo, 523',
+    Supplier.create!(fantasy_name: 'CIA Tech', company_name: 'Compania e Technologia', cnpj: '96634560001091', address: 'Rua oscar raposo, 523',
       email: 'ciatech@company.com.br', phone: '81 997661256')
-    supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '9663123000109', address: 'Rua vírginio campos, 123',
+    supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '96631230001091', address: 'Rua vírginio campos, 123',
       email: 'cibertech@company.com.br', phone: '81 981316988')
     Warehouse.create!(name: 'Recife', code: 'RCF', city: 'Recife', area: 90_000,
       address: 'Avenida do aeroporto, 1000', cep: '15000-000',
@@ -33,9 +33,9 @@ describe 'usuario informa novo status de pedido ' do
   end
 
   it 'e pedido foi entregue' do
-    Supplier.create!(fantasy_name: 'CIA Tech', company_name: 'Compania e Technologia', cnpj: '9663456000109', address: 'Rua oscar raposo, 523',
+    Supplier.create!(fantasy_name: 'CIA Tech', company_name: 'Compania e Technologia', cnpj: '96634560001091', address: 'Rua oscar raposo, 523',
       email: 'ciatech@company.com.br', phone: '81 997661256')
-    supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '9663123000109', address: 'Rua vírginio campos, 123',
+    supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '96631230001091', address: 'Rua vírginio campos, 123',
       email: 'cibertech@company.com.br', phone: '81 981316988')
     Warehouse.create!(name: 'Recife', code: 'RCF', city: 'Recife', area: 90_000,
       address: 'Avenida do aeroporto, 1000', cep: '15000-000',

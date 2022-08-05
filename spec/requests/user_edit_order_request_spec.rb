@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'usuario edita um pedido' do
   it 'e nao é o dono' do
-    supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '9663123000109', address: 'Rua vírginio campos, 123',
+    supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '96631230001091', address: 'Rua vírginio campos, 123',
       email: 'cibertech@company.com.br', phone: '81 981316988')
     warehouse = Warehouse.create!(name: 'Recife', code: 'RCF', city: 'Recife', area: 90_000,
       address: 'Avenida do aeroporto, 1000', cep: '15000-000',

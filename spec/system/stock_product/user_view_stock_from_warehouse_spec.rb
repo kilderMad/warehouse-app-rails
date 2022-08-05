@@ -6,7 +6,7 @@ describe 'usuario vê o estoque' do
     warehouse = Warehouse.create(name: 'Recife PE', code: 'RCF', city: 'Recife', area: 90_000,
       address: 'Avenida Brasil, 999', cep: '50340-000',
       description: 'Galpao altamente tecnológico e com melhor gerenciamento de distribuição')
-    supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '9663123000109', address: 'Rua vírginio campos, 123',
+    supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '96631230001091', address: 'Rua vírginio campos, 123',
       email: 'cibertech@company.com.br', phone: '81 981316988')
     product_a = ProductModel.create!(name: 'Monitor 8k', wight: 2000, width: 90, height: 30, depth: 2, sku: 'MT8000-KOREJVNERTYUO', supplier: supplier)
     product_b = ProductModel.create!(name: 'Monitor 4k', wight: 2000, width: 90, height: 30, depth: 2, sku: 'MT4000-KOREJVNERTYUO', supplier: supplier)
@@ -33,7 +33,7 @@ describe 'usuario vê o estoque' do
     warehouse = Warehouse.create(name: 'Recife PE', code: 'RCF', city: 'Recife', area: 90_000,
       address: 'Avenida Brasil, 999', cep: '50340-000',
       description: 'Galpao altamente tecnológico e com melhor gerenciamento de distribuição')
-    supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '9663123000109', address: 'Rua vírginio campos, 123',
+    supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '96631230001091', address: 'Rua vírginio campos, 123',
       email: 'cibertech@company.com.br', phone: '81 981316988')
     product_a = ProductModel.create!(name: 'Monitor 8k', wight: 2000, width: 90, height: 30, depth: 2, sku: 'MT8000-KOREJVNERTYUO', supplier: supplier)
     order = Order.create!(admin: user, warehouse: warehouse, supplier: supplier, estimated_delivery_date: 2.day.from_now)

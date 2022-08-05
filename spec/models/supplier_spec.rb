@@ -38,9 +38,9 @@ RSpec.describe Supplier, type: :model do
         end
 
         it 'quando CNPJ ja existe' do
-            f_supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '9663120001095', address: 'Rua vírginio campos, 123',
+            f_supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '96631200010951', address: 'Rua vírginio campos, 123',
                 email: 'cibertech@company.com.br', phone: '81 981316988')
-            s_supplier = Supplier.new(fantasy_name: 'ChTech', company_name: 'CHGF Technology', cnpj: '9663120001095', address: 'Rua hongro fibonato, 567',
+            s_supplier = Supplier.new(fantasy_name: 'ChTech', company_name: 'CHGF Technology', cnpj: '96631200010951', address: 'Rua hongro fibonato, 567',
                 email: 'gthj@company.com.br', phone: '81 666316988')
 
             expect(s_supplier.valid?).to eq false

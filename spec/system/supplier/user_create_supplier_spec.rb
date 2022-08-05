@@ -10,7 +10,7 @@ describe 'Usuario cadastra um fornecedor' do
 
         fill_in 'Nome', with: 'Logenet'
         fill_in 'Razão Social', with: 'Logenet eletronicos'
-        fill_in 'CNPJ', with: '1234567890123'
+        fill_in 'CNPJ', with: '12345678901231'
         fill_in 'Email', with: 'logenet@gmail.com'
         fill_in 'Telephone', with: '81 988766437'
         fill_in 'Endereço', with: 'Av Rui barbosa, 769'

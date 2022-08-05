@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Usuario cadastra um modelo de produto' do
   it 'com sucesso' do
-    supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '9663123000109', address: 'Rua vírginio campos, 123',
+    supplier = Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '96631230001091', address: 'Rua vírginio campos, 123',
       email: 'cibertech@company.com.br', phone: '81 981316988')
     user = Admin.create!(email: 'kilder@gmail.com', password: 'password')
     login_as(user)
@@ -29,7 +29,7 @@ describe 'Usuario cadastra um modelo de produto' do
   end
 
   it 'com dados em branco' do
-    Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '9663123000109', address: 'Rua vírginio campos, 123',
+    Supplier.create!(fantasy_name: 'CiberTech', company_name: 'CT Technology', cnpj: '96631230001091', address: 'Rua vírginio campos, 123',
                      email: 'cibertech@company.com.br', phone: '81 981316988')
 
     user = Admin.create!(email: 'kilder@gmail.com', password: 'password')
